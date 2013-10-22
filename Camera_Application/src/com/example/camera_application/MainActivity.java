@@ -1,22 +1,24 @@
 package com.example.camera_application;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
 
-public class MainActivity extends Activity {
+import android.support.v4.app.Fragment;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-	}
+import android.view.Window;
+import android.view.WindowManager;
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
+public class MainActivity extends SingleFragmentActivity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        // hide the window title.
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // hide the status bar and other OS-level chrome
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        super.onCreate(savedInstanceState);
+    }
+    
+    @Override
+    protected Fragment createFragment() {
+        return new CameraFragment();
+    }
 }
