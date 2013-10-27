@@ -11,7 +11,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -29,18 +31,17 @@ public class CameraFragment extends Fragment {
     @Override
     @SuppressWarnings("deprecation")
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-    	View v = inflater.inflate(R.layout.fragment_crime_camera, parent, false);
-    	
-        mProgressContainer = v.findViewById(R.id.crime_camera_progressContainer);
+    	View v = inflater.inflate(R.layout.fragment_camera, parent, false);
+        mProgressContainer = v.findViewById(R.id.camera_progressContainer);
         mProgressContainer.setVisibility(View.INVISIBLE);
-        Button takePictureButton = (Button)v.findViewById(R.id.crime_camera_takePictureButton);
-        takePictureButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                getActivity().finish();
-            } 
-        });
+//        Button takePictureButton = (Button)v.findViewById(R.id.camera_takePictureButton);
+//        takePictureButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                getActivity().finish();
+//            } 
+//        });
 
-        mSurfaceView = (SurfaceView)v.findViewById(R.id.crime_camera_surfaceView);
+        mSurfaceView = (SurfaceView)v.findViewById(R.id.camera_surfaceView);
         SurfaceHolder holder = mSurfaceView.getHolder();
         // deprecated, but required for pre-3.0 devices
         holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
@@ -122,5 +123,4 @@ public class CameraFragment extends Fragment {
         }
         return bestSize;
     }
-    
 }
