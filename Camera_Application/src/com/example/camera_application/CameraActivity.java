@@ -1,6 +1,5 @@
 package com.example.camera_application;
 
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
@@ -10,8 +9,6 @@ import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.Window;
-import android.view.WindowManager;
 
 public class CameraActivity extends FragmentActivity implements GalleryFragment.ViewChangedListener {
     GestureDetector gestureDetector;

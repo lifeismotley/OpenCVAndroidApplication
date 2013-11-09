@@ -4,12 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -23,7 +21,7 @@ import android.widget.GridView;
 
 
 public class GalleryFragment extends Fragment implements OnItemClickListener{
-	private String dir="/mnt/sdcard/DCIM/Camera";
+	private String dir= Environment.getExternalStorageDirectory().getPath(); // problems?
 	private List<String> item = null;
 	private GridView lv1;
 	GestureDetector gestureDetector;
